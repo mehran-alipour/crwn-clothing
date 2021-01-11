@@ -2,6 +2,11 @@ body {
   font-family: 'Open Sans Condensed', sans-serif;
   padding: 20px 60px;
 }
+@media only screen and (max-width: 600px){
+  body {
+    padding: 20px 10px;
+  } 
+}
 
 a {
   text-decoration: none;
