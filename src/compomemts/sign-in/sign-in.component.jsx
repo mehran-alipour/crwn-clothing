@@ -7,52 +7,52 @@ import { auth, signInWithGoogle } from '../../firebase/firebase.utils';
 
 import './sign-in.styles.scss';
 
-class SignIn extends React.Component{
-  constructor(props){
+class SignIn extends React.Component {
+  constructor(props) {
     super(props);
     this.state = {
-      email : '',
-      password : '',
+      email: '',
+      password: '',
       message: ''
     }
   }
   handleChange = event => {
-    const {value, name} = event.target;
-    this.setState({[name]: value})
+    const { value, name } = event.target;
+    this.setState({ [name]: value })
   }
 
   handleSubmit = async event => {
     event.preventDefault();
-    const {email, password } = this.state;
+    const { email, password } = this.state;
 
-    try{
+    try {
       await auth.signInWithEmailAndPassword(email, password);
       this.setState({ email: '', password: '' });
-      this.setState({message: 'Enjoy Shopping'});
-    }catch (error){
-      this.setState({message: error.message});
+      this.setState({ message: 'Enjoy Shopping' });
+    } catch (error) {
+      this.setState({ message: error.message });
     }
   }
 
-  render(){
-    return(
+  render() {
+    return (
       <div className='sign-in'>
         <h2>I already have an account</h2>
         <span>Sign in with your email and password</span>
 
         <form onSubmit={this.handleSubmit}>
-          <FormInput 
-            name="email" 
-            type="email" 
-            value={this.state.email} 
+          <FormInput
+            name="email"
+            type="email"
+            value={this.state.email}
             handleChange={this.handleChange}
             label="Email"
-            required 
+            required
           />
-          
-          <FormInput 
-            name="password" 
-            type="password" 
+
+          <FormInput
+            name="password"
+            type="password"
             value={this.state.password}
             handleChange={this.handleChange}
             label="password"
