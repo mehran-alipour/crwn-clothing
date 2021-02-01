@@ -30,6 +30,17 @@ $layout-breakpoint-small: 1100px;
     margin-left: auto;
     font-size: 36px;
   }
+
+  button {
+    margin-left: auto;
+    margin-top: 50px;
+  }
+
+  .warning {
+    text-align: center;
+    font-size: 25px;
+    color: red;
+  }
 }
 @media only screen and (max-width: $layout-breakpoint-small){
   .checkout-page {
